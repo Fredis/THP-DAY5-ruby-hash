@@ -1,30 +1,22 @@
-def weight_watcher(plateName, lipides, glucides, proteines)
-	calories = Hash.new
-	plate = Hash.new
-	calories = {
-		"Lipides" => 9,
-		"Glucides" => 4,
-		"Protéines" => 4
-	}
+WELSH = Hash.new
+WELSH["Lipides"] = 38.4
+WELSH["Glucides"] = 18.3
+WELSH["Protéines"] = 36.4
 
-	plate = {
-		"Lipides" => lipides,
-		"Glucides" => glucides,
-		"Protéines" => proteines
-	}
+CALORIES = Hash.new
+CALORIES["Lipides"] = 9
+CALORIES["Glucides"] = 4
+CALORIES["Protéines"] = 4
+
+def weight_watcher(plat)
 
 	result = 0.0
-	calories.each do |key, value|
-		result = result + (calories[key].to_f*plate[key])
+	if value == WELSH
+		CALORIES.each do |key, value|
+			result = result + CALORIES[key].to_f*WELSH[key]
+		end
 	end
-
-	puts "Le nombre de caloris pour le plate #{plateName} est de #{result}."
-
+	puts result
 end
 
-
-def perform
-	weight_watcher("WELSH", 38.4, 18.3, 36.3)
-end
-
-perform
+weight_watcher(WELSH)
