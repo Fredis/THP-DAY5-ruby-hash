@@ -18,13 +18,13 @@ CALORIES["Lipides"] = 9.0
 CALORIES["Glucides"] = 4.0
 CALORIES["Protéines"] = 4.0
 
-MENU = Hash.new
+MENU = Hash.new #C'est le hash MENU qui regroupe les autres HASHS correspondant aux différents plats
 MENU["WELSH"] = WELSH
 MENU["FRITES"] = FRITES
 MENU["BIERE"] = BIERE
 
 
-def weight_watcher(plat)
+def weight_watcher(plat) #Réalisation d'une méthode qui va calculer le nombre de calories sur la base du hash CALORIES et du hash en argument de la méthode
 	result = 0.0
 		CALORIES.each do |keyweight, valueweight|
 			result = result + CALORIES[keyweight]*plat[keyweight]
@@ -33,12 +33,12 @@ def weight_watcher(plat)
 end
 
 
-def meal_weight_watchers(menu)
+def meal_weight_watchers(menu) #Réalisation d'une méthode qui va parcourir les hashs contenus dans le hash MENU, lance la méthode weight_watcher autant de fois qu'il y a de hashs et qui va nous donner le nombre total de calories
 	finalResult = 0.0
 	menu.each do |key, value|
 	finalResult = finalResult + weight_watcher(value)
 	end
-	puts finalResultls
+	puts "La valeur totale du menu en calories est de : #{finalResult}."
 
 end
 
